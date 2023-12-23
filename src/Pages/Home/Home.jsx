@@ -1,10 +1,11 @@
 import React from 'react'
 import useSearch from '../../Hooks/useSearch'
 import Card from '../../Components/Card/Card';
+import usePopular from '../../Hooks/usePopular';
 
-function Home(searchTerm) {   
-
-    const list = useSearch(searchTerm);
+function Home(searchTerm) { 
+  
+  let list = useSearch(searchTerm)
 
     return (
       <>

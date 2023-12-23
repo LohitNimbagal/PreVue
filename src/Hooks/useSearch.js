@@ -8,7 +8,7 @@ function useSearch() {
 
   const searchTerm = useSelector((state)=> state.searchterm[state.searchterm.length - 1])
 
-  const apiURL = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}&api_key=84a52dd28c4dfe452e195008fb0304a2`
+  const apiURL = `https://api.themoviedb.org/3/search/multi?query=${searchTerm}&api_key=84a52dd28c4dfe452e195008fb0304a2`
 
   useEffect(()=>{
     const fetchData = async () => {
