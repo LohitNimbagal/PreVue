@@ -4,7 +4,7 @@ function Footer() {
   return (
     <>
     <div className='footerWrapper bg-cyan-600 h-12
-    w-full fixed bottom-0 flex flex-col text-center'>
+    w-full bottom-0 flex flex-col text-center'>
 
         <p className='text-sm font-bold'>
         Special thanks to OMDB API for powering our movie data.
