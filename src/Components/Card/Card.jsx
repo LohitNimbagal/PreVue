@@ -1,20 +1,32 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { add } from '../../Store/watchlistSlice'
+import { Link } from 'react-router-dom'
+import useFetchDetails from '../../Hooks/useFetchDetails'
+import { addId } from '../../Store/detailsSlice'
+
 
 function Card({list}) {
 
+    
+    
     const placeholder = 'https://placehold.co/400x600'
-
+    
     const dispatch = useDispatch();
-
+    
     const handelAdd = (item)=>{
         dispatch(add(item));
     }
 
+    const handelCardClick = (id)=>{
+        console.log(id);
+        dispatch(addId(id))
+    }
+
     return (
         list.map((item) => (
-            <div key={Math.random()} id={item.id} className=' tw-card w-40 h-fit flex  flex-col rounded-xl m-2  text-center relative group overflow-hidden bg-white '>
+            <Link to='/details'>
+            <div key={item.id} id={item.id} className=' tw-card w-40 h-fit flex  flex-col rounded-xl m-2  text-center relative group overflow-hidden bg-white ' onClick={()=>handelCardClick(item.id)}>
                 <img src={item.poster_path ? 'https://image.tmdb.org/t/p/w500/'+ item.poster_path : placeholder}alt="" className=' rounded-xl '/>
 
                 <div className='absolute h-1/4 text-white w-full flex items-center justify-center bg-black/50 -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300 '>
@@ -29,6 +41,7 @@ function Card({list}) {
                 </svg >
                 </button>
             </div>
+            </Link>
         )
     )
     )
