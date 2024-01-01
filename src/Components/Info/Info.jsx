@@ -15,7 +15,7 @@ function Info({details}) {
                 <h2 className='text-xl mb-4 font-bold'>{details.title}</h2>
             <div className='flex gap-3'>
                 <h4 className='font-bold'>{details.imdbRating} ⭐</h4>
-                <h4>{details.release_date.split("-").reverse().join("-")}</h4>
+                <h4 className='font-bold'>{details.release_date.split("-").reverse().join("-")}</h4>
             </div>
             {/* <h4><span className='font-bold'>Rated : </span>{details.Rated}</h4> */}
             {/* <h4><span className='font-bold'>Realeased : </span>{details.Released}</h4> */}
