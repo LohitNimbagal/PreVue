@@ -11,11 +11,12 @@ function usePopular() {
           const response = await fetch(apiURL);
           const result = await response.json();
           setData(result.results);
+          console.log(data);
         }
         
-        // console.log(data);
         fetchData()
     },[])
+
     return data
 }
 

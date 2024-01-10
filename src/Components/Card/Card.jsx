@@ -8,6 +8,7 @@ import { addId } from '../../Store/detailsSlice'
 
 function Card({list}) {
     const dispatch = useDispatch();
+    const placeholderImage = 'https://placehold.co/400x600?text=Not+Found '
     
     const handelAdd = (item)=>{
         dispatch(add(item));
@@ -19,18 +20,15 @@ function Card({list}) {
         dispatch(addId({id: id, type: type}))
     }
 
-    console.log(list);
-
+    // console.log(list);
     return (
         list.map((item) => 
         {
-            if (item.media_type === "movie" || item.media_type === "tv") {
-
                 return (
                     <div key={item.id} id={item.id} className=' tw-card w-40 h-fit flex  flex-col rounded-xl m-2  text-center relative group overflow-hidden bg-white '>
     
                     <Link to='/details'>
-                    <img src={'https://image.tmdb.org/t/p/w500/'+ item.poster_path}alt="" className=' rounded-xl 'onClick={()=>handelCardClick(item.id, item.media_type)}/>
+                    <img src={item.poster_path ? 'https://image.tmdb.org/t/p/w500/'+ item.poster_path : placeholderImage}alt="" className=' rounded-xl 'onClick={()=>handelCardClick(item.id, item.media_type)}/>
                     </Link>
     
                     <div className='absolute h-1/4 text-white w-full flex items-center justify-center bg-black/50 -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300 '>
@@ -45,7 +43,7 @@ function Card({list}) {
                     </button>
                     </div>
                 )
-            }
+            
         }        
         )
 

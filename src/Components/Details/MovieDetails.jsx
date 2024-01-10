@@ -3,6 +3,7 @@ import React from 'react'
 function MovieDetails({details}) {
 
     const placeholder = 'https://placehold.co/400x600'
+    console.log(details);
 
 
     return (

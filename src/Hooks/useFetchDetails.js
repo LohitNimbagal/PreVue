@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Details from '../Pages/Details';
 
-function useFetchDetails({id, type}) {
+function useFetchDetails({id, type = "movie"}) {
 
     // console.log({id, type});
 

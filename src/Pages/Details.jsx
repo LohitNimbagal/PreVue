@@ -13,8 +13,10 @@ function Details() {
   if (details !== undefined) {
     if (detailsID.type === "movie") {
       return <MovieDetails details={details}/>
-    }else{
+    }else if (detailsID.type === "tv"){
       return <TvDetails details={details} />
+    }else {
+      return <MovieDetails details={details}/>
     }
   }
 }

@@ -4,9 +4,17 @@ import Card from '../Components/Card/Card';
 import usePopular from '../Hooks/usePopular';
 
 function Home() { 
+  let list = usePopular()
+  console.log(list);
   
   return(
-    <h1>Home</h1>
+    <>
+    {list !== '' && (
+      <div className='cardWrapper h-fit px-40 py-2 flex flex-wrap mb-1 justify-center'>
+        <Card list={list} />
+      </div>
+    )}
+    </>
   )
 }
 
