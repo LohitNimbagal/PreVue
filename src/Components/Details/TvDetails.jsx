@@ -12,6 +12,7 @@ function TvDetails({details}) {
 
         <div className='my-5 ml-10 text-sm font-thin w-4/5 p-5 leading-7'>
                 <h2 className='text-xl mb-4 font-bold'>{details.name}</h2>
+                <h3 className='p-1 bg-blue-400 w-fit h-fit text-xs font-bold rounded-sm'>TV Series</h3>
             <div className='flex gap-3'>
                 <h4 className='font-bold'>{Math.round(details.vote_average)} ⭐</h4>
                 {/* <h4 className='font-bold'>{details.release_date.split("-").reverse().join("-")}</h4> */}
