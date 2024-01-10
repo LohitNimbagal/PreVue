@@ -1,10 +1,9 @@
 import React from 'react'
-import useSearch from '../../Hooks/useSearch'
-import Card from '../../Components/Card/Card';
-import usePopular from '../../Hooks/usePopular';
+import useSearch from '../Hooks/useSearch'
+import Card from '../Components/Card/Card';
 
-function Home(searchTerm) { 
-  
+function Searchlist(searchTerm) {
+
   let list = useSearch(searchTerm)
 
     return (
@@ -17,6 +16,6 @@ function Home(searchTerm) {
       </>
       
     )
-  }
+}
 
-export default Home
+export default Searchlist

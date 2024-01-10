@@ -1,15 +1,14 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
-import useFetchDetails from '../../Hooks/useFetchDetails';
 
-function Info({details}) {
+function MovieDetails({details}) {
 
-    // console.log(details);
     const placeholder = 'https://placehold.co/400x600'
+
+
     return (
     <>
     <div className='w-full h-full px-10 py-5 flex gap-5'>
-        <img src={details.poster_path ? 'https://image.tmdb.org/t/p/w500/'+ details.poster_path : placeholder}alt="" className='infoImg rounded-xl'/>
+        <img src={details.poster_path ? 'https://image.tmdb.org/t/p/w500/'+ details.poster_path : placeholder}alt="" className='detailsImg rounded-xl'/>
 
         <div className='my-5 ml-10 text-sm font-thin w-4/5 p-5 leading-7'>
                 <h2 className='text-xl mb-4 font-bold'>{details.title}</h2>
@@ -32,4 +31,4 @@ function Info({details}) {
     )
 }
 
-export default Info
+export default MovieDetails

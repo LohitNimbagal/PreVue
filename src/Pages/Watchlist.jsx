@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import WatchlistCard from '../../Components/WatchlistCard/WatchlistCard'
+import Card from '../Components/Card/Card'
 
 function Watchlist() {
 
@@ -8,7 +8,7 @@ function Watchlist() {
 
   return (
       <div className='cardWrapper  h-screen px-40 py-2 flex flex-wrap mb-10 justify-center'>
-        <WatchlistCard list={list} />
+        <Card list={list} />
       </div>
     )
 }

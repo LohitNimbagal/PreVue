@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react'
-import Details from '../Pages/Details/Details';
+import Details from '../Pages/Details';
 
-function useFetchDetails(id) {
+function useFetchDetails({id, type}) {
+
+    // console.log({id, type});
 
     if (id !== 'undefined') {
         const [details, setDetails] = useState()
-        const apiURL = `https://api.themoviedb.org/3/movie/${id}?api_key=84a52dd28c4dfe452e195008fb0304a2`
-        
+        const apiURL = `https://api.themoviedb.org/3/${type}/${id}?api_key=84a52dd28c4dfe452e195008fb0304a2`
+        // console.log(apiURL);
+
         useEffect(()=>{
             const fetchData = async () => {
                 const response = await fetch(apiURL);
@@ -15,7 +18,7 @@ function useFetchDetails(id) {
                 setDetails(result)
             }
             fetchData()
-        },[id])
+        },[id,type])
 
     return details
     }
