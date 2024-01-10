@@ -26,7 +26,7 @@ function Header() {
         <input type="text" className='rounded-2xl h-8 p-1 text-center text-xs w-40' placeholder='Enter your Keywords here' onKeyDown={(e)=>{
           if (e.key === "Enter") {
             handelAddSearchterm(e.target.value)
-            nagivate("/searchlist")
+            nagivate("/search")
           }
         }}/>
 
