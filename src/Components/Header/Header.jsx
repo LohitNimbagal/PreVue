@@ -14,6 +14,7 @@ function Header() {
 
   const dispatch = useDispatch()
   const nagivate = useNavigate()
+  
   const authStatus = useSelector((state)=> state.auth.status)
 
   const handelAddSearchterm = (searchTerm)=>{
@@ -30,11 +31,21 @@ function Header() {
     {
       name: "Watchlist",
       path: "/watchlist",
-      active: !authStatus
+      active: authStatus
     },
     {
       name: "Favorite",
       path: "/",
+      active: authStatus
+    },
+    {
+      name: "Login",
+      path: "/login",
+      active: !authStatus
+    },
+    {
+      name: "Signup",
+      path: "/signup",
       active: !authStatus
     },
   ]
@@ -63,9 +74,11 @@ function Header() {
            ) : null
 
            )}
-           {authStatus && 
+           {authStatus && (
+            <li>
               <LogoutBtn />
-           }
+            </li>
+           )}
         </ul>
 
         {/* <Link to='/watchlist'><img src="src/Assets/user.png" alt="logo" className='w-10 h-10'/></Link> */}

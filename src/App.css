@@ -1,6 +1,6 @@
 .detailsImg{
-    margin-left: 5rem;
-    width: 20rem;
+    /* margin-left: 5rem; */
+    width: 22rem;
     height: 30rem;
 }
 
@@ -8,3 +8,24 @@
     /* width: 7rem; */
     height: 3rem;
 }
+
+.cardWrapper{
+    /* background-color: red; */
+    padding: 2rem;
+}
+
+@media (max-width: 600px) {
+    .cardWrapper{
+        background: red;
+        padding: 1rem;
+    }
+
+    .detailWrapper{
+        background-color: blueviolet;
+        flex-wrap: wrap;
+    }
+
+    .dL, .dR{
+        width: auto;
+    }
+  }

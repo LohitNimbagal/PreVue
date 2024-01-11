@@ -5,12 +5,12 @@ import usePopular from '../Hooks/usePopular';
 
 function Home() { 
   let list = usePopular()
-  console.log(list);
+  // console.log(list);
   
   return(
     <>
     {list !== '' && (
-      <div className='cardWrapper h-fit px-40 py-2 flex flex-wrap mb-1 justify-center'>
+      <div className='cardWrapper h-fit py-2 flex flex-wrap mb-1 justify-center'>
         <Card list={list} />
       </div>
     )}

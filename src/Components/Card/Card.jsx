@@ -25,8 +25,7 @@ function Card({list}) {
         list.map((item) => 
         {
         return (
-            <>
-                <div key={Date.now()} id={item.id} className=' tw-card w-40 h-fit flex  flex-col rounded-xl m-2  text-center relative group overflow-hidden bg-white '>
+                <div key={item.id} id={item.id} className=' tw-card w-40 h-fit flex  flex-col rounded-xl m-2  text-center relative group overflow-hidden bg-white '>
                 
                 <Link to='/details'>
                 <img src={item.poster_path ? 'https://image.tmdb.org/t/p/w500/'+ item.poster_path : placeholderImage}alt="" className=' rounded-xl 'onClick={()=>handelCardClick(item.id, item.media_type)}/>
@@ -43,7 +42,6 @@ function Card({list}) {
                     </svg >
                 </button> */}
                 </div>
-            </>
         )
             
         }        
