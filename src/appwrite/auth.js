@@ -1,6 +1,7 @@
 import envVariables from '../envVariables/envVariables'
 import { Account, Client, ID } from 'appwrite';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 export class AuthService {
 
@@ -49,7 +50,7 @@ export class AuthService {
 
     async logout(){
         try {
-            await this.account.deleteSession(useSelector(state => state.userData.$id))
+            await this.account.deleteSessions()
         } catch (error) {
             console.log('Appwrite Service :: logout() :: error', error);
         }

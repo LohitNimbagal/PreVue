@@ -1,3 +1,11 @@
+
+html , body{
+    height: 100%;
+    width: 100%;
+    font-family: 'Calistoga', serif;
+    font-family: 'Karla', sans-serif;
+}
+
 .detailsImg{
     /* margin-left: 5rem; */
     width: 22rem;
@@ -16,7 +24,7 @@
 
 @media (max-width: 600px) {
     .cardWrapper{
-        background: red;
+        /* background: red; */
         padding: 1rem;
     }
 

@@ -4,9 +4,10 @@ import App from './App.jsx'
 import './index.css'
 import store from "../src/Store/store.js"
 import { Provider } from 'react-redux'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Route, RouterProvider, Routes, createBrowserRouter } from 'react-router-dom'
 import Protected from "./Components/Protected.jsx"
 import {Home,Searchlist,Watchlist,Details,Login,Signup} from "./Pages/index.jsx"
+
 
 const router = createBrowserRouter([
   {
@@ -36,17 +37,13 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: (
-          <Protected authentication={false}>
             <Searchlist />
-          </Protected>
         )
       },
       {
         path: "/details",
         element: (
-          <Protected authentication={false}>
             <Details />
-          </Protected>
         )
       },
       {
@@ -65,7 +62,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-     <RouterProvider router={router} />
+    <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,
 )

@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
+import authService from '../appwrite/auth'
 
 function Protected({children, authentication = true}) {
 
@@ -12,11 +13,12 @@ function Protected({children, authentication = true}) {
     useEffect(()=>{
             if (authentication && authStatus !== authentication) {
                 navigate("/login")
-              } else if (!authentication && authStatus !== authentication ){
+              } if (!authentication && authStatus !== authentication ){
                 navigate("/")
               }
         setLoader(false)
     },[authStatus, authentication, navigate])
+
 
   return loader ? "Loading....." : <>{children}</>
 }
