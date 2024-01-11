@@ -23,30 +23,32 @@ function Header() {
   }
 
   const navItems = [
-    {
-      name: "Home",
-      path: "/",
-      active: true
-    },
+    // {
+    //   name: "Home",
+    //   path: "/",
+    //   active: true
+    // },
+    // {
+    //   name: "Favorite",
+    //   path: "/",
+    //   active: authStatus
+    // },
     {
       name: "Watchlist",
       path: "/watchlist",
-      active: authStatus
-    },
-    {
-      name: "Favorite",
-      path: "/",
-      active: authStatus
+      active: true
     },
     {
       name: "Login",
       path: "/login",
-      active: !authStatus
+      active: !authStatus,
+      actionBtn: true
     },
     {
       name: "Signup",
       path: "/signup",
-      active: !authStatus
+      active: !authStatus,
+      actionBtn: true
     },
   ]
 
@@ -64,16 +66,28 @@ function Header() {
         }}/>
 
         <ul className='flex gap-3 text-sm'>
-          {navItems.map((item)=> item.active ?
-          (
-            <li key={item.name}>
-              <button key={item.name} onClick={()=> nagivate(item.path)} className='p-1'>
-                {item.name}
-              </button>
-            </li>
-           ) : null
+          {navItems.map((item) => {
+            if (item.active && item.actionBtn){
+              return(
+                <li key={item.name}>
+                  <button key={item.name} onClick={()=> nagivate(item.path)} className='inline-bock duration-500 bg-blue-400 text-sm p-1 px-2 rounded-sm '>
+                    {item.name}
+                  </button>
+              </li>
+              )
+            }else if (item.active) {
+              return (
+                <li key={item.name}>
+                  <button key={item.name} onClick={()=> nagivate(item.path)} className='p-1 hover:bg-white hover:bg-opacity-30 hover:backdrop-blur-xl rounded-sm'>
+                    {item.name}
+                  </button>
+                </li>
+                )
+              }
 
-           )}
+          }
+          )}
+
            {authStatus && (
             <li>
               <LogoutBtn />
