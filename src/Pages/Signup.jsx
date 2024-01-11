@@ -1,8 +1,11 @@
 import React from 'react'
+import {Signup as SignupComp} from "../Components/index" 
 
 function Signup() {
   return (
-    <div>Signup</div>
+    <>
+    <SignupComp />
+    </>
   )
 }
 
