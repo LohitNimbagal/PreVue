@@ -5,9 +5,9 @@ import {login as authLogin} from '../Store/authSlice'
 import { useNavigate } from 'react-router'
 import authService from '../appwrite/auth'
 import { Link } from 'react-router-dom'
-import Logo from '../Components/Logo'
-import Input from '../Components/Input'
-import Button from "../Components/Button"
+import Logo from './Logo'
+import Input from './Input'
+import Button from "./Button"
  
 function Login() {
     const dispatch = useDispatch()

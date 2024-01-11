@@ -2,12 +2,11 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { add } from '../../Store/searchtermSlice'
+import { add } from '../Store/searchtermSlice'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import Button from '../Button'
-import LogoutBtn from './LogoutBtn'
-// import { Store } from '@reduxjs/toolkit'
+import authService from '../appwrite/auth'
+import { logout } from '../Store/authSlice'
 
 
 function Header() {
@@ -20,6 +19,12 @@ function Header() {
   const handelAddSearchterm = (searchTerm)=>{
     console.log(searchTerm);
     dispatch(add(searchTerm))
+  }
+
+  const handleLogout = () => {
+    authService.logout().then(()=>{
+      dispatch(logout())
+    })
   }
 
   const navItems = [
@@ -89,9 +94,9 @@ function Header() {
           )}
 
            {authStatus && (
-            <li>
-              <LogoutBtn />
-            </li>
+            <button className='inline-bock duration-500 bg-blue-400 text-sm p-1 px-2 rounded-sm ' onClick={handleLogout}>
+              Logout
+            </button>
            )}
         </ul>
 
