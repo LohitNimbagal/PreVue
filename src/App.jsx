@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import Header from './components/Header.jsx'
-import Footer from './components/Footer/Footer.jsx'
 import { Outlet } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import authService from './appwrite/auth'
@@ -30,7 +29,6 @@ function App() {
       <main>
         <Outlet />
       </main>
-    <Footer />
     </>
   ) : null
 }
