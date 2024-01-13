@@ -11,5 +11,5 @@ export {
     Logo,
     Input,
     Button,
-    Header
+    Header,
 }

@@ -22,14 +22,14 @@ function Card({list}, watchlist=true) {
         list.map((item) => 
         {
         return (
-                <div key={item.id} id={item.id} className=' tw-card w-40 h-fit flex  flex-col rounded-xl m-2  text-center relative group overflow-hidden bg-white hover:cursor-pointer'>
+                <div key={item.id} id={item.id} className=' tw-card w-40 h-fit flex  flex-col rounded-xl text-center relative group overflow-hidden bg-white hover:cursor-pointer'>
                 
 
-                <img src={item.poster_path ? 'https://image.tmdb.org/t/p/w500/'+ item.poster_path : placeholderImage}alt="" className=' rounded-xl 'onClick={()=>handelCardClick(item)}/>
+                    <img src={item.poster_path ? 'https://image.tmdb.org/t/p/w500/'+ item.poster_path : placeholderImage}alt="" className=' rounded-xl 'onClick={()=>handelCardClick(item)}/>
 
-                <div className='absolute h-1/4 text-white w-full flex items-center justify-center bg-black/50 -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300 '>
+                    <div className='absolute h-1/4 text-white w-full flex items-center justify-center bg-black/50 -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300 '>
 
-                <h2 className='text-xs flex justify-center items-center font-bold'>{item.title ? item.title : item.name}</h2>
+                    <h2 className='text-xs flex justify-center items-center font-bold'>{item.title ? item.title : item.name}</h2>
 
                 </div>
 

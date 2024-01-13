@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import envVariables from "../envVariables/envVariables"
 
-export const fetchPopular = createAsyncThunk("popular", async () => {
+export const fetchPopular = createAsyncThunk("popular", async ({type, category}) => {
 
-    const response = await fetch (`https://api.themoviedb.org/3/movie/popular?api_key=${envVariables.apiKey}&language=en-US`)
+    const response = await fetch (`https://api.themoviedb.org/3/${type}/${category}?api_key=${envVariables.apiKey}&language=en-US`)
     const result = await response.json()
     return result;
 })
@@ -11,8 +11,8 @@ export const fetchPopular = createAsyncThunk("popular", async () => {
 export const popular = createSlice({
     name: "popular",
     initialState: {
-        response: [],
-        loading: false,
+        data: [],
+        loading: true,
         error: null,
     },
     extraReducers: (builder) => { 
@@ -21,7 +21,7 @@ export const popular = createSlice({
         } )
         builder.addCase(fetchPopular.fulfilled, (state, action) => {
             state.loading = false;
-            state.response = action.payload;
+            state.data = action.payload;
         } )
         builder.addCase(fetchPopular.rejected, (state, action) => {
             state.loading = false;

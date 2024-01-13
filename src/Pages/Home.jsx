@@ -1,34 +1,22 @@
-import React, { useEffect, useState } from 'react'
-// import useSearch from '../Hooks/useSearch'
-import Card from '../components/Card/Card';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchPopular } from '../features/popularSlice';
-// import usePopular from '../Hooks/usePopular';
+import Card from '../components/Card';
+import { useSelector } from 'react-redux';
+import NavSelection from '../components/NavSelection';
 
 function Home() { 
 
-  const dispatch = useDispatch()
-  const [list, setList] = useState([])
+const response = useSelector(state => state.popular)
+const list = response.data.results
 
-  dispatch(fetchPopular())
-  const response = useSelector(state => state.popular) ;
-
-  useEffect(()=>{
-    setList(response.results)
-  },[list])
-  
-  console.log(list);
-  
   return(
     <>
+      <NavSelection />
 
-    {/* <button className='border' onClick={()=>handelClick()}>Here</button> */}
-
-    {/* {list !== '' && (
-      <div className='cardWrapper h-fit py-2 flex flex-wrap mb-1 justify-center'>
-        <Card list={list} />
+      <div className='container-snap h-70'>
+        <div className='cardWrapper w-fit py-2 flex flex-wrap mb-1 justify-center gap-10'>
+          {list !== undefined  ? ( <Card list={list} />) : <h1 className='text-2xl font-bold text-center'>Loading...</h1>
+          }
+        </div>
       </div>
-    )} */}
     </>
   )
 }
