@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import useFetchDetails from "../Hooks/useFetchDetails"
+// import useFetchDetails from "../Hooks/useFetchDetails"
 import MovieDetails from "../Components/Details/MovieDetails"
 import TvDetails from "../Components/Details/TvDetails"
 

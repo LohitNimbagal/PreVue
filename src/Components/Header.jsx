@@ -2,11 +2,10 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { add } from '../Store/searchtermSlice'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import authService from '../appwrite/auth'
-import { logout } from '../Store/authSlice'
+import { logout } from '../features/authSlice'
 
 
 function Header() {

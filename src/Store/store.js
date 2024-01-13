@@ -1,15 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import watchlistReducer from '../Store/watchlistSlice'
-import searchtermReducer from "../Store/searchtermSlice";
-import detailsReducer from "./detailsSlice";
-import authReducer from "./authSlice"
+import authReducer from "../features/authSlice"
+import popularReducer from "../features/popularSlice";
 
 const store = configureStore({
     reducer: {
-        watchlist: watchlistReducer,
-        searchterm: searchtermReducer,
-        detailsIdList: detailsReducer,
         auth: authReducer,
+        popular: popularReducer,
     }
 })
 

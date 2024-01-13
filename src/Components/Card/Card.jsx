@@ -1,7 +1,5 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addId } from '../../Store/detailsSlice'
-import {add} from '../../Store/watchlistSlice'
 import { useNavigate } from 'react-router-dom'
 
 

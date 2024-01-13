@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { addId } from '../../Store/detailsSlice';
-import { add } from '../../Store/watchlistSlice'
 
 function MovieDetails({details}) {
 

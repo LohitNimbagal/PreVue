@@ -6,7 +6,7 @@ import store from "../src/Store/store.js"
 import { Provider } from 'react-redux'
 import { Route, RouterProvider, Routes, createBrowserRouter } from 'react-router-dom'
 import Protected from "./Components/Protected.jsx"
-import {Home,Searchlist,Watchlist,Details,Login,Signup} from "./Pages/index.jsx"
+import {Home,Searchlist,Watchlist,Details,Login,Signup} from "./pages/index.js"
 
 
 const router = createBrowserRouter([

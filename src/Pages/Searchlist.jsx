@@ -1,6 +1,6 @@
 import React from 'react'
-import useSearch from '../Hooks/useSearch'
-import Card from '../Components/Card/Card';
+// import useSearch from '../Hooks/useSearch'
+import Card from '../components/Card/Card';
 
 function Searchlist(searchTerm) {
 
