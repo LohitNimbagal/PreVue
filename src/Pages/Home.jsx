@@ -1,14 +1,15 @@
 import Card from '../components/Card';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import NavSelection from '../components/NavSelection';
 
 function Home() { 
 
-const response = useSelector(state => state.popular)
+const response = useSelector(state => state.category)
 const list = response.data.results
 
   return(
     <>
+
       <NavSelection />
 
       <div className='container-snap h-70'>

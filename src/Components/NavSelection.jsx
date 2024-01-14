@@ -1,12 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPopular } from '../features/popularSlice';
+import { fetchCat } from '../features/fetchCatSlice';
 import { useState, useEffect } from 'react';
 
 function NavSelection() {
       
 const dispatch = useDispatch()
-const response = useSelector(state => state.popular)
+const response = useSelector(state => state.category)
 const list = response.data.results
 
 const [category, setCategory] = useState("popular")
@@ -72,7 +72,7 @@ const typeSelect = [{
 
 useEffect(() => {
 
-  dispatch(fetchPopular({type, category}));
+  dispatch(fetchCat({type, category}));
 
   if (type === "movie") {
     setCatSelect(movieCat)  
@@ -84,8 +84,10 @@ useEffect(() => {
 
   return (
     <>
-    <div className='flex items-center justify-center'>
-        <div className='h-fit py-1 px-2 m-5 mx-10 rounded-md bg-white'>
+
+    <div className='flex flex-col flex-wrap items-center justify-center'>
+
+        <div className='h-fit py-1 px-2 m-5 mx-10 rounded-sm bg-white'>
           <ul className=' flex items-center justify-around gap-5 '>
 
           {typeSelect.map((item) => {
@@ -107,7 +109,7 @@ useEffect(() => {
           </ul>
         </div>
 
-        <div className='h-fit py-1 px-2 m-5 mx-10 rounded-md bg-white'>
+        <div className='h-fit py-1 px-2 mb-5 mx-10 rounded-sm bg-white'>
           <ul className=' flex items-center justify-around gap-5 '>
 
           {catSelect.map((item) => {
@@ -124,7 +126,8 @@ useEffect(() => {
 
           </ul>
         </div>
-      </div>
+    </div>
+
     </>
   )
 }

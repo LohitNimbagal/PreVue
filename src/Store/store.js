@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "../features/authSlice"
-import popularReducer from "../features/popularSlice";
+import categoryReducer from "../features/fetchCatSlice";
+import searchReducer from "../features/searchSlice";
 
 const store = configureStore({
     reducer: {
         auth: authReducer,
-        popular: popularReducer,
+        category: categoryReducer,
+        searchResult: searchReducer,
     }
 })
 
