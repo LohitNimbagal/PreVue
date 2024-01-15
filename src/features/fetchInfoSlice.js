@@ -1,30 +1,29 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import envVariables from "../envVariables/envVariables"
 
-export const fetchCat = createAsyncThunk("category", async ({type, category}) => {
+export const fetchInfo = createAsyncThunk("info", async ({type, id}) => {
 
-    const response = await fetch (`https://api.themoviedb.org/3/${type}/${category}?api_key=${envVariables.apiKey}&language=en-US`)
+    const response = await fetch (`https://api.themoviedb.org/3/${type}/${id}?api_key=${envVariables.apiKey}`)
     const result = await response.json()
     return result;
 })
 
-export const category = createSlice({
-    name: "category",
+export const info = createSlice({
+    name: "info",
     initialState: {
         data: {},
-        loading: true,
+        loading: false,
         error: null,
     },
     extraReducers: (builder) => { 
-        builder
-            .addCase(fetchCat.pending, (state) => {
+        builder.addCase(fetchInfo.pending, (state) => {
             state.loading = true;
         } )
-            .addCase(fetchCat.fulfilled, (state, action) => {
+        builder.addCase(fetchInfo.fulfilled, (state, action) => {
             state.loading = false;
             state.data = action.payload;
         } )
-            .addCase(fetchCat.rejected, (state, action) => {
+        builder.addCase(fetchInfo.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
         } )
@@ -32,4 +31,4 @@ export const category = createSlice({
     }
 )
 
-export default category.reducer
+export default info.reducer

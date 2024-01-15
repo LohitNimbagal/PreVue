@@ -2,22 +2,32 @@ import { useSelector } from "react-redux"
 // import useFetchDetails from "../Hooks/useFetchDetails"
 import MovieDetails from "../Components/Details/MovieDetails"
 import TvDetails from "../Components/Details/TvDetails"
+import { useEffect, useState } from "react"
 
 
 function Details() {
 
-  const detailsID = useSelector((state)=> state.detailsIdList[state.detailsIdList.length - 1])
+  const info = useSelector(state => state.info)
 
-  const details = useFetchDetails(detailsID)
+  const detail = info.data
 
-  if (details !== undefined) {
-    if (detailsID.type === "movie") {
-      return <MovieDetails details={details}/>
-    }else if (detailsID.type === "tv"){
-      return <TvDetails details={details} />
+  useEffect(()=>{
+    console.log(detail);
+  }, [])
+
+
+
+  if (detail !== null || detail !== undefined) {
+    console.log(detail);
+    if (detail.type === "movie") {
+      return <MovieDetails details={detail}/>
+    }else if (detail.type === "tv"){
+      return <TvDetails details={detail} />
     }else {
-      return <MovieDetails details={details}/>
+      return <MovieDetails details={detail}/>
     }
+  }else {
+    return <h1>Loading.......</h1>
   }
 }
 

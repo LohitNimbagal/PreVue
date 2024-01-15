@@ -1,23 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import info, { fetchInfo } from '../features/fetchInfoSlice'
 
 
-function Card({list}, watchlist=true) {
+function Card({list}) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const placeholderImage = 'https://placehold.co/400x600?text=Not+Found '
 
     const handelCardClick = (item)=>{
-        dispatch(addId({id: item.id, type: item.media_type}))
+
+        const type = item.media_type
+        const id = item.id
+        dispatch(fetchInfo({type, id}))
         navigate("/details")
     }
 
     const handelAdd = (item) => {
         dispatch(add(item))
     }
+    console.log(list);
 
-    // console.log(list);
     return (
         list.map((item) => 
         {

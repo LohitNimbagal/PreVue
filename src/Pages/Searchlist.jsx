@@ -1,13 +1,14 @@
 import React from 'react'
 // import useSearch from '../Hooks/useSearch'
 import Card from '../components/Card';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import { search } from '../features/searchSlice';
 
-function Searchlist(searchTerm) {
+function Searchlist() {
 
-  let response = useSelector(state => state.searchResult)
+  const response = useSelector(state => state.searchResult)
   const list = response.data.results
-  console.log(list)
 
     return (
       <>

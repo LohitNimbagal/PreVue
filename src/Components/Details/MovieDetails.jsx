@@ -18,7 +18,7 @@ function MovieDetails({details}) {
                 <h3 className='p-1 bg-blue-400 w-fit h-fit text-xs font-bold rounded-sm mb-1'>Movie</h3>
                 <h4><span className='font-bold'>Ratings : </span>{Math.round(details.vote_average)} ⭐</h4>
 
-                <h4><span className='font-bold'>Release Date : </span>{details.release_date.split("-").reverse().join("-")}</h4>
+                {/* <h4><span className='font-bold'>Release Date : </span>{details.release_date.split("-").reverse().join("-")}</h4> */}
 
             {/* <h4><span className='font-bold'>Rated : </span>{details.Rated}</h4> */}
             {/* <h4><span className='font-bold'>Realeased : </span>{details.Released}</h4> */}
@@ -29,7 +29,7 @@ function MovieDetails({details}) {
             {/* <h4><span className='font-bold'>Awards : </span>{details.Awards}</h4> */}
 
             <h4><span className='font-bold '>Plot : </span><p className='leading-5'>{details.overview}</p></h4>
-            <h4><span className='font-bold'>Language : </span>{details.spoken_languages.map(lan => lan.english_name).join(", ")}</h4>
+            {/* <h4><span className='font-bold'>Language : </span>{details.spoken_languages.map(lan => lan.english_name).join(", ")}</h4> */}
             
         </div>
         </div>
