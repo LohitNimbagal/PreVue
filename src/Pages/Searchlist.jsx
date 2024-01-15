@@ -1,9 +1,6 @@
 import React from 'react'
-// import useSearch from '../Hooks/useSearch'
-import Card from '../components/Card';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
-import { search } from '../features/searchSlice';
+import {Card} from '../components/index';
+import { useSelector } from 'react-redux';
 
 function Searchlist() {
 

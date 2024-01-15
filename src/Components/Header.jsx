@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -66,7 +65,6 @@ function Header() {
         <input type="text" className='rounded-2xl h-8 p-1 mr-4 text-center text-xs w-48 outline-none' placeholder='Search for Movies and TV Shows' onKeyDown={(e)=>{
           if (e.key === "Enter") {
             dispatch(search(e.target.value))
-            // handelAddSearchterm(
             nagivate("/search")
           }
         }}/>

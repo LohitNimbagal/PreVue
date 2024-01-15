@@ -4,6 +4,11 @@ import Logo from "./Logo"
 import Input from "./Input";
 import Button from "./Button";
 import Header from "./Header";
+import NavSelection from "./NavSelection.jsx"
+import Protected from "./Protected.jsx"
+import Card from "./Card.jsx"
+import MovieDetails from "../components/Details/MovieDetails"
+import TvDetails from "../components/Details/TvDetails"
 
 export {
     Login,
@@ -12,4 +17,9 @@ export {
     Input,
     Button,
     Header,
+    NavSelection,
+    Protected,
+    Card,
+    MovieDetails,
+    TvDetails
 }

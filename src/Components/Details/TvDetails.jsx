@@ -4,7 +4,6 @@ function TvDetails({details}) {
 
     const placeholder = 'https://placehold.co/400x600'
 
-
     return (
     <>
     <div className='w-full h-full px-10 py-5 flex gap-5'>

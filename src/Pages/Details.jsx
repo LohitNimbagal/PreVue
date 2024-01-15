@@ -1,34 +1,25 @@
 import { useSelector } from "react-redux"
-// import useFetchDetails from "../Hooks/useFetchDetails"
-import MovieDetails from "../Components/Details/MovieDetails"
-import TvDetails from "../Components/Details/TvDetails"
-import { useEffect, useState } from "react"
-
+import {MovieDetails, TvDetails} from "../components/index"
+import useFetchInfo from '../hooks/useFetchInfo'
 
 function Details() {
 
-  const info = useSelector(state => state.info)
+  const {type, id} = useSelector(state => state.details)
+  const data = useFetchInfo({type, id});
 
-  const detail = info.data
-
-  useEffect(()=>{
-    console.log(detail);
-  }, [])
-
-
-
-  if (detail !== null || detail !== undefined) {
-    console.log(detail);
-    if (detail.type === "movie") {
-      return <MovieDetails details={detail}/>
-    }else if (detail.type === "tv"){
-      return <TvDetails details={detail} />
-    }else {
-      return <MovieDetails details={detail}/>
-    }
-  }else {
-    return <h1>Loading.......</h1>
+  if (data) {
+      console.log(data);
+      if (type === "movie") {
+        return <MovieDetails details={data}/>
+      }else if (type === "tv"){
+        return <TvDetails details={data} />
+      }else {
+        return <MovieDetails details={data}/>
+      }
+  } else {
+  return <div className="flex items-center justify-center"> <h1>Loading....</h1> </div>
   }
+
 }
 
 export default Details

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-const setSelection = createSlice({
+const setSelectionSlice = createSlice({
     name: "selection",
     initialState: {
         type: "movie",
@@ -15,5 +15,5 @@ const setSelection = createSlice({
     }
 })
 
-export const {set} = setSelection.actions
-export default setSelection.reducer;
+export const {set} = setSelectionSlice.actions;
+export default setSelectionSlice.reducer;

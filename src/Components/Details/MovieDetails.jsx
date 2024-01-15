@@ -20,10 +20,10 @@ function MovieDetails({details}) {
 
                 {/* <h4><span className='font-bold'>Release Date : </span>{details.release_date.split("-").reverse().join("-")}</h4> */}
 
-            {/* <h4><span className='font-bold'>Rated : </span>{details.Rated}</h4> */}
-            {/* <h4><span className='font-bold'>Realeased : </span>{details.Released}</h4> */}
-            {/* <h4><span className='font-bold'>Genre : </span>{details.genres.map(genre => genre.name).join(", ")}</h4> */}
-            {/* <h4><span className='font-bold'>Director : </span>{details.Director}</h4> */}
+            <h4><span className='font-bold'>Rated : </span>{details.Rated}</h4>
+            <h4><span className='font-bold'>Realeased : </span>{details.Released}</h4>
+            <h4><span className='font-bold'>Genre : </span>{details.genres.map(genre => genre.name).join(", ")}</h4>
+            <h4><span className='font-bold'>Director : </span>{details.Director}</h4>
             {/* <h4><span className='font-bold'>Writer : </span>{details.Writer}</h4> */}
             {/* <h4><span className='font-bold'>Actors : </span>{details.Actors}</h4> */}
             {/* <h4><span className='font-bold'>Awards : </span>{details.Awards}</h4> */}

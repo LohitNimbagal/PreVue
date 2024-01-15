@@ -4,7 +4,6 @@ import envVariables from '../envVariables/envVariables'
 const useFetch = ({type, category}) => {
 
     const [data, setData] = useState({})
-    const [loader, setloader] = useState(true)
 
     useEffect(()=>{
 
@@ -13,7 +12,6 @@ const useFetch = ({type, category}) => {
 
         .then(res => res.json())
         .then(res => setData(res.results))
-        .then(setloader(false)) 
 
     },[type, category])
     return data

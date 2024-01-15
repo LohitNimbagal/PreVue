@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import envVariables from "../envVariables/envVariables"
 
-export const search = createAsyncThunk("searchResult", async (term = "spiderman") => {
+export const search = createAsyncThunk("searchResult", async (term) => {
 
     const response = await fetch (`https://api.themoviedb.org/3/search/multi?query=${term}&api_key=${envVariables.apiKey}&language=en-US`)
     console.log(response);
