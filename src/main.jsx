@@ -4,9 +4,14 @@ import App from './App.jsx'
 import './index.css'
 import store from "../src/Store/store.js"
 import { Provider } from 'react-redux'
-import { Route, RouterProvider, Routes, createBrowserRouter } from 'react-router-dom'
-import Protected from "./Components/Protected.jsx"
-import {Home,Searchlist,Watchlist,Details,Login,Signup} from "./pages/index.js"
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Protected from "./components/Protected.jsx"
+import Home from "./pages/Home.jsx"
+import Details from "./pages/Details.jsx"
+import Login from "./pages/Login.jsx"
+import Searchlist from "./pages/Searchlist.jsx"
+import Signup from "./pages/Signup.jsx"
+import Watchlist from "./pages/Watchlist.jsx"
 
 
 const router = createBrowserRouter([
