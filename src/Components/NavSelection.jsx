@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import {set} from '../features/setSelectionSlice'
+import { useDispatch } from 'react-redux'
 
 function NavSelection() {
 
-  const [title, setTitle] = useState("movie")
-  const [category, setCategory] = useState("")
+  const [type, setType] = useState("movie")
+  const [category, setCategory] = useState("popular")
   const [categorySelect, setCategorySelect] = useState()
+  const dispatch = useDispatch()
 
-  const titleSelect = [
+  const typeSelect = [
     { name: "Movie", query: "movie" },
     { name: "Tv Series", query: "tv" },
   ];
@@ -26,14 +29,18 @@ function NavSelection() {
   ];
   
   useEffect(() => {
-    setCategory("popular")
-
-    if (title === 'movie') {
+    
+    
+    if (type === 'movie') {
       setCategorySelect(movieCat);
     } else {
       setCategorySelect(tvCat);
     }
-  }, [title]);
+  }, [type]);
+
+  useEffect(()=>{
+    dispatch(set({type, category}))
+  },[type, category])
 
 
   return (
@@ -41,12 +48,16 @@ function NavSelection() {
         <div className='h-fit py-1 px-2 m-5 mx-10 rounded-sm bg-white'>
           <ul className=' flex items-center justify-around gap-5 '>
 
-            {titleSelect.map((item) => {
+            {typeSelect.map((item) => {
                 return (
                 <li key={item.name}>
                     <button 
-                    onClick={()=> setTitle(item.query)} 
-                    className={`${title === item.query ? 'bg-blue-400' : 'white'} duration:400  rounded-sm px-2`}
+                    onClick={() => {
+                      setType(item.query)
+                      setCategory("popular")
+                    }
+                    } 
+                    className={`${type === item.query ? 'bg-blue-400' : 'white'} duration:400  rounded-sm px-2`}
                     >
                       {item.name}
                     </button>

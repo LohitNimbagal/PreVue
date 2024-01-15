@@ -3,11 +3,11 @@ import authReducer from "../features/authSlice"
 import categoryReducer from "../features/fetchCatSlice";
 import searchReducer from "../features/searchSlice";
 import infoReducer from "../features/fetchInfoSlice";
-import setCatReducer from "../features/setCatSlice"
+import setSelectionReducer from "../features/setSelectionSlice"
 
 const store = configureStore({
     reducer: {
-        cat: setCatReducer,
+        selection: setSelectionReducer,
         auth: authReducer,
         category: categoryReducer,
         searchResult: searchReducer,
