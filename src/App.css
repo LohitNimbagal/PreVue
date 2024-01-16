@@ -5,36 +5,3 @@ html , body{
     background-color: #93C5FD;
     font-family: 'Poppins', sans-serif;
 }
-
-.detailsImg{
-    /* margin-left: 5rem; */
-    width: 26rem;
-    height: 38rem;
-}
-
-.logoImg{
-    /* width: 7rem; */
-    height: 4rem;
-}
-
-.cardWrapper{
-    /* background-color: red; */
-    padding: 1rem;
-}
-
-
-@media (max-width: 600px) {
-    .cardWrapper{
-        /* background: red; */
-        padding: 1rem;
-    }
-
-    .detailWrapper{
-        background-color: blueviolet;
-        flex-wrap: wrap;
-    }
-
-    .dL, .dR{
-        width: auto;
-    }
-  }

@@ -59,20 +59,21 @@ function Header() {
 
   return (
     <>
-    <div className='Header-wrapper w-full py-1 flex justify-between px-5 items-center relative'>
 
-        <Link to='/'><img src={logo} alt="logo" className='logoImg'/></Link>
+    <header className='w-full flex flex-col lg:flex-row items-center justify-center lg-w-full lg:items-center lg:justify-between lg:px-10'>
 
-        <input type="text" className='bg-white rounded-md w-64 h-10 p-1 text-center text-sm backdrop-blur-md bg-opacity-40 ml-10' placeholder='Search for Movies and TV Shows' onKeyDown={(e)=>{
-          if (e.key === "Enter") {
-            dispatch(search(e.target.value))
-            nagivate("/search")
-          }
-        }}/>
+      <Link to='/'><img src={logo} alt="logo" className='w-52'/></Link>
+        
+      <input type="text" className='w-64 h-10 mt-5 bg-white rounded-md p-1 text-center text-sm backdrop-blur-md bg-opacity-40 lg:m-1 lg:ml-12' placeholder='Search for Movies and TV Shows' onKeyDown={(e)=>{
+        if (e.key === "Enter") {
+          dispatch(search(e.target.value))
+          nagivate("/search")
+        }
+      }}/>
 
+      <img src="../../public/statics/more.png" alt="menu" className='w-5 m-2 hidden lg:hidden'/>
 
-        <ul className='flex gap-3 text-sm items-center'>
-
+      <ul className='gap-3 text-sm items-center hidden lg:flex'>
           {navItems.map((item) => {
             if (item.active && item.actionBtn){
               return(
@@ -91,22 +92,17 @@ function Header() {
                 </li>
                 )
               }
-
-          }
-          )}
+              
+            }
+            )}
 
            {authStatus && (
-            <button className='inline-bock duration-500 bg-blue-600 p-1 px-2 rounded-sm tracking-wider text-base text-slate-900 hover:bg-blue-400' onClick={handleLogout}>
+             <button className='inline-bock duration-500 bg-blue-600 p-1 px-2 rounded-sm tracking-wider text-base text-slate-900 hover:bg-blue-400' onClick={handleLogout}>
               Logout
             </button>
            )}
-        </ul>
-
-        {/* <Link to='/watchlist'><img src="src/Assets/user.png" alt="logo" className='w-10 h-10'/></Link> */}
-
-    </div>
-
-
+      </ul>
+    </header>
     </>
   )
 

@@ -10,10 +10,10 @@ function Home() {
 
   return (
     <>
-      <div className='h-full flex flex-col flex-wrap items-center justify-center px-20 pb-10 '>
+      <div className='w-full h-full flex flex-col flex-wrap items-center justify-center mt-2'>
         <NavSelection />
 
-        <div className='flex h-full gap-7 flex-wrap items-center justify-center overflow-hidden'>
+        <div className='flex gap-7 flex-wrap items-center justify-center'>
           {Object.keys(list).length !== 0 && <Card list={list} />}
         </div>
       </div>
