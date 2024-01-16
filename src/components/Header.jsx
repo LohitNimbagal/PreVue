@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import authService from '../appwrite/auth'
 import { logout } from '../features/authSlice'
 import { search } from '../features/searchSlice'
+import logo from "../../public/statics/logo.png"
 
 
 function Header() {
@@ -60,7 +61,7 @@ function Header() {
     <>
     <div className='Header-wrapper w-full px-8 py-1 flex justify-between items-center'>
 
-        <Link to='/'><img src={"/public/statics/logo.png"} alt="logo" className='logoImg'/></Link>
+        <Link to='/'><img src={logo} alt="logo" className='logoImg'/></Link>
 
         <input type="text" className='rounded-2xl h-8 p-1 mr-4 text-center text-xs w-48 outline-none' placeholder='Search for Movies and TV Shows' onKeyDown={(e)=>{
           if (e.key === "Enter") {

@@ -3,7 +3,7 @@ import logo from '../../public/statics/logo.png'
 
 function Logo() {
   return (
-    <img src={logo}/>
+    <img src={logo} className='w-42'/>
   )
 }
 
