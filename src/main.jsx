@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App.jsx'
 import './index.css'
-import store from "../src/Store/store.js"
+import store from "../src/store/store.js"
 import { Provider } from 'react-redux'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Protected from "./components/Protected.jsx"
@@ -69,9 +69,9 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
-  // {/* </React.StrictMode>, */}
+ </React.StrictMode>,
 )
