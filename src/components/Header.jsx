@@ -60,7 +60,7 @@ function Header() {
     <>
     <div className='Header-wrapper w-full px-8 py-1 flex justify-between items-center'>
 
-        <Link to='/'><img src="src/Assets/logo.png" alt="logo" className='logoImg'/></Link>
+        <Link to='/'><img src="src/assets/logo.png" alt="logo" className='logoImg'/></Link>
 
         <input type="text" className='rounded-2xl h-8 p-1 mr-4 text-center text-xs w-48 outline-none' placeholder='Search for Movies and TV Shows' onKeyDown={(e)=>{
           if (e.key === "Enter") {
