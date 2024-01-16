@@ -59,11 +59,11 @@ function Header() {
 
   return (
     <>
-    <div className='Header-wrapper w-full px-8 py-1 flex justify-between items-center'>
+    <div className='Header-wrapper w-full py-1 flex justify-between px-5 items-center relative'>
 
         <Link to='/'><img src={logo} alt="logo" className='logoImg'/></Link>
 
-        <input type="text" className='rounded-2xl h-8 p-1 mr-4 text-center text-xs w-48 outline-none' placeholder='Search for Movies and TV Shows' onKeyDown={(e)=>{
+        <input type="text" className='bg-white rounded-md w-64 h-10 p-1 text-center text-sm backdrop-blur-md bg-opacity-40 ml-10' placeholder='Search for Movies and TV Shows' onKeyDown={(e)=>{
           if (e.key === "Enter") {
             dispatch(search(e.target.value))
             nagivate("/search")
@@ -77,7 +77,7 @@ function Header() {
             if (item.active && item.actionBtn){
               return(
                 <li key={item.name}>
-                  <button key={item.name} onClick={()=> nagivate(item.path)} className='inline-bock duration-500 bg-blue-400 text-sm p-1 px-2 rounded-sm '>
+                  <button key={item.name} onClick={()=> nagivate(item.path)} className='inline-bock duration-200 bg-blue-600 text-md p-2 px-3 rounded-sm text-slate-900 tracking-wider hover:bg-blue-400 '>
                     {item.name}
                   </button>
               </li>
@@ -85,8 +85,8 @@ function Header() {
             }else if (item.active) {
               return (
                 <li key={item.name}>
-                  <button key={item.name} onClick={()=> nagivate(item.path)} className='p-1 hover:bg-white hover:bg-opacity-30 hover:backdrop-blur-xl rounded-sm'>
-                    {item.name}
+                  <button key={item.name} onClick={()=> nagivate(item.path)} className='p-1 text-slate-900 tracking-wider text-base'>
+                    <h1>{item.name}</h1>
                   </button>
                 </li>
                 )
@@ -96,7 +96,7 @@ function Header() {
           )}
 
            {authStatus && (
-            <button className='inline-bock duration-500 bg-blue-400 text-sm p-1 px-2 rounded-sm ' onClick={handleLogout}>
+            <button className='inline-bock duration-500 bg-blue-600 p-1 px-2 rounded-sm tracking-wider text-base text-slate-900 hover:bg-blue-400' onClick={handleLogout}>
               Logout
             </button>
            )}

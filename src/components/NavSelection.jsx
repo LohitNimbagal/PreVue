@@ -45,7 +45,8 @@ function NavSelection() {
 
   return (
     <>
-        <div className='h-fit py-1 px-2 m-5 mx-10 rounded-sm bg-white'>
+        <div className='mb-5 flex flex-col items-center '>
+        <div className='h-fit w-fit p-1 m-5 mx-10 bg-white rounded-md backdrop-blur-md bg-opacity-40'> 
           <ul className=' flex items-center justify-around gap-5 '>
 
             {typeSelect.map((item) => {
@@ -67,14 +68,14 @@ function NavSelection() {
           </ul>
         </div>
 
-        <div className='h-fit py-1 px-2 mb-5 mx-10 rounded-sm bg-white'>
-          <ul className=' flex items-center justify-around gap-5 '>
+        <div className='h-fit p-1 mb-5 mx-10 bg-white rounded-md backdrop-blur-md bg-opacity-40 '>
+          <ul className=' flex items-center justify-around gap-5'>
           {categorySelect && (categorySelect.map((item) => {
               return (
               <li key={item.name}>
                   <button 
                   onClick={()=> setCategory(item.query)}
-                  className={`${category === item.query ? 'bg-blue-400' : 'white'} duration:400  rounded-sm px-2`}
+                  className={`${category === item.query ? 'bg-blue-400' : 'white'} rounded-sm px-2`}
                   >
                     {item.name}
                   </button>
@@ -82,6 +83,7 @@ function NavSelection() {
               )
           })) }
           </ul>
+        </div>
         </div>
     </>
 

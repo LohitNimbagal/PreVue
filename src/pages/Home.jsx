@@ -10,11 +10,11 @@ function Home() {
 
   return (
     <>
-      <div className='flex flex-col flex-wrap items-center justify-center'>
+      <div className='h-full flex flex-col flex-wrap items-center justify-center px-20 pb-10 '>
         <NavSelection />
 
-        <div className='flex h-screen gap-5 flex-wrap items-center justify-center'>
-        {Object.keys(list).length !== 0 && <Card list={list} />}
+        <div className='flex h-full gap-7 flex-wrap items-center justify-center overflow-hidden'>
+          {Object.keys(list).length !== 0 && <Card list={list} />}
         </div>
       </div>
     </>
