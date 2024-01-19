@@ -3,12 +3,13 @@ import Signup from "./Signup";
 import Logo from "./Logo"
 import Input from "./Input";
 import Button from "./Button";
-import Header from "./Header";
+import Header from "./Hearder/Header.jsx";
 import NavSelection from "./NavSelection.jsx"
 import Protected from "./Protected.jsx"
 import Card from "./Card.jsx"
 import MovieDetails from "../components/Details/MovieDetails"
 import TvDetails from "../components/Details/TvDetails"
+import SearchInput from "./Hearder/SearchInput.jsx";
 
 export {
     Login,
@@ -21,5 +22,6 @@ export {
     Protected,
     Card,
     MovieDetails,
-    TvDetails
+    TvDetails,
+    SearchInput
 }

@@ -1,14 +1,29 @@
-import { useSelector } from "react-redux"
 import {MovieDetails, TvDetails} from "../components/index"
-import useFetchInfo from '../hooks/useFetchInfo'
+import { useLocation, useSearchParams } from "react-router-dom";
+import { useState,useEffect } from "react";
+import envVariables from "../envVariables/envVariables";
 
 function Details() {
+  
+  const location = useLocation()
+  const [data, setData] = useState({})
+  const [type, setType] = useState(null);
+  const [id, setId] = useState(null);
 
-  const {type, id} = useSelector(state => state.details)
-  const data = useFetchInfo({type, id});
+  
+  useEffect(() => {
+    const {typee, id} = location.state;
+    setType(typee)
+    setId(id)
+
+    fetch (`https://api.themoviedb.org/3/${typee}/${id}?api_key=${envVariables.apiKey}`)
+    .then(res => res.json())
+    .then(result => setData(result))
+    
+  }, [location.state])
+
 
   if (data) {
-      console.log(data);
       if (type === "movie") {
         return <MovieDetails details={data}/>
       }else if (type === "tv"){

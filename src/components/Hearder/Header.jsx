@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import authService from '../appwrite/auth'
-import { logout } from '../features/authSlice'
-import { search } from '../features/searchSlice'
-import logo from "../../public/statics/logo.png"
+import authService from '../../appwrite/auth'
+import { logout } from '../../features/authSlice'
+import { search } from '../../features/searchSlice'
+import logo from "../../../public/statics/logo.png"
+import SearchInput from './SearchInput'
 
 
 function Header() {
@@ -64,12 +65,7 @@ function Header() {
 
       <Link to='/'><img src={logo} alt="logo" className='w-52'/></Link>
         
-      <input type="text" className='w-64 h-10 mt-5 bg-white rounded-md p-1 text-center text-sm backdrop-blur-md bg-opacity-40 lg:m-1 lg:ml-12' placeholder='Search for Movies and TV Shows' onKeyDown={(e)=>{
-        if (e.key === "Enter") {
-          dispatch(search(e.target.value))
-          nagivate("/search")
-        }
-      }}/>
+      <SearchInput />
 
       <img src="../../public/statics/more.png" alt="menu" className='w-5 m-2 hidden lg:hidden'/>
 

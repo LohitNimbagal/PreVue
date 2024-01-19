@@ -17,8 +17,7 @@ function Card({list}) {
 
         const typee = item.media_type ? item.media_type : type
         const id = item.id
-        dispatch(setDetails({typee, id}))
-        navigate("/details")
+        navigate("/details", {state: {typee, id} })
     }
 
     return (
