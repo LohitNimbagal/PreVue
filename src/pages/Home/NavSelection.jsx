@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import {set} from '../features/setSelectionSlice'
 import { useDispatch } from 'react-redux'
+import { useSearchParams } from 'react-router-dom'
 
 function NavSelection() {
 
   const [type, setType] = useState("movie")
   const [category, setCategory] = useState("popular")
   const [categorySelect, setCategorySelect] = useState()
+  const [searchParams, setSearchParams] = useSearchParams()
   const dispatch = useDispatch()
 
   const typeSelect = [
@@ -39,7 +40,8 @@ function NavSelection() {
   }, [type]);
 
   useEffect(()=>{
-    dispatch(set({type, category}))
+    setSearchParams({type, category})
+    // dispatch(set({type, category}))
   },[type, category])
 
 

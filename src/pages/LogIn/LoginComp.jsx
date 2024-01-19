@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import {useForm} from "react-hook-form"
 import { useDispatch } from 'react-redux'
-import {login as authLogin} from '../features/authSlice'
+import {login as authLogin} from './authSlice'
 import { useNavigate } from 'react-router'
-import authService from '../appwrite/auth'
+import authService from '../../appwrite/auth'
 import { Link } from 'react-router-dom'
-import Logo from './Logo'
-import Input from './Input'
-import Button from "./Button"
+import Logo from '../../components/Logo'
+import Input from '../../components/Input'
+import Button from "../../components/Button"
  
-function Login() {
+function LoginComp() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const {register, handleSubmit} = useForm()
@@ -75,4 +75,4 @@ function Login() {
     );
 }
 
-export default Login
+export default LoginComp

@@ -1,19 +1,15 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { SearchInput } from '../index'
+import { logout } from '../../pages/LogIn/authSlice'
 import authService from '../../appwrite/auth'
-import { logout } from '../../features/authSlice'
-import logo from "../../../public/statics/logo.png"
-import SearchInput from './SearchInput'
+import logo from "../../assets/logo.png"
 
 
 function Header() {
 
   const dispatch = useDispatch()
   const nagivate = useNavigate()
-  
   const authStatus = useSelector((state)=> state.auth.status)
 
   const handelAddSearchterm = (searchTerm)=>{

@@ -1,17 +1,13 @@
 import React from 'react'
-import {createRoot} from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import store from "../src/store/store.js"
+import {createRoot} from 'react-dom/client'
 import { Provider } from 'react-redux'
+import { Protected } from './components/index.js'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Protected from "./components/Protected.jsx"
-import Home from "./pages/Home.jsx"
-import Details from "./pages/Details.jsx"
-import Login from "./pages/Login.jsx"
-import Searchlist from "./pages/Searchlist.jsx"
-import Signup from "./pages/Signup.jsx"
-import Watchlist from "./pages/Watchlist.jsx"
+import {Home, Searchlist, Details, Login, Signup, Watchlist} from "./pages/index.js"
+
 
 
 const router = createBrowserRouter([
@@ -66,7 +62,6 @@ const router = createBrowserRouter([
     ]
   }
 ])
-
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>

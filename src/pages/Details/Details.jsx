@@ -1,7 +1,7 @@
-import {MovieDetails, TvDetails} from "../components/index"
+import {MovieDetails, TvDetails} from "../index"
 import { useLocation, useSearchParams } from "react-router-dom";
 import { useState,useEffect } from "react";
-import envVariables from "../envVariables/envVariables";
+import envVariables from "../../envVariables/envVariables";
 
 function Details() {
   
@@ -12,11 +12,11 @@ function Details() {
 
   
   useEffect(() => {
-    const {typee, id} = location.state;
-    setType(typee)
+    const {type , id} = location.state;
+    setType(type)
     setId(id)
 
-    fetch (`https://api.themoviedb.org/3/${typee}/${id}?api_key=${envVariables.apiKey}`)
+    fetch (`https://api.themoviedb.org/3/${type}/${id}?api_key=${envVariables.apiKey}`)
     .then(res => res.json())
     .then(result => setData(result))
     

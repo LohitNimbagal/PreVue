@@ -3,11 +3,11 @@ import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
-import authService from '../appwrite/auth'
-import { login } from '../features/authSlice'
-import {Logo, Input, Button} from "./index"
+import authService from '../../appwrite/auth'
+import { login } from '../LogIn/authSlice'
+import {Logo, Input, Button} from "../../components/index"
 
-function Signup() {
+function SignupComp() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -79,4 +79,4 @@ function Signup() {
     );
 }
 
-export default Signup
+export default SignupComp

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -7,15 +8,18 @@ function Card({list}) {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const placeholderImage = 'https://placehold.co/400x600?text=Not+Found '
+    const [type, setType] = useState(null)
 
-    const {type} = useSelector(state => state.selection)
+    useEffect(()=>{
+        let searchParams = new URLSearchParams(document.location.search)
+        let typePara = searchParams.get("type")
+        setType(typePara)
+    },[location.search])
 
     const handleCardClick = (item)=>{
-
-        const typee = item.media_type ? item.media_type : type
-        const id = item.id
-        navigate("/details", {state: {typee, id} })
+        setType(item.media_type ? item.media_type : type)
+        let id = item.id
+        navigate("/details", {state: {type, id }})
     }
 
     return (
