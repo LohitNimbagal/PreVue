@@ -28,11 +28,11 @@ function TvDetails({details}) {
                     {details.next_episode_to_air.air_date.split("-").reverse().join("-")}
                     </h4> : null}
             </div>
-            <h4><span className='font-bold'>Genre : </span>{details.genres.map(genre => genre.name).join(", ")}</h4>
+            <h4><span className='font-bold'>Genre : </span>{details.genres?.map(genre => genre.name).join(", ")}</h4>
             {/* <h4><span className='font-bold'>Creaters : </span>{details.created_by[0].name}</h4> */}
             <h4><span className='font-bold'>Actors : </span>{details.Actors}</h4>
             <h4><span className='font-bold '>Plot : </span><p className='leading-5 lg:leading-7'>{details.overview}</p></h4>
-            <h4><span className='font-bold'>Language : </span>{details.spoken_languages.map(lan => lan.english_name).join(", ")}</h4>
+            <h4><span className='font-bold'>Language : </span>{details.spoken_languages?.map(lan => lan.english_name).join(", ")}</h4>
             {/* <h4><span className='font-bold'>Awards : </span>{details.Awards}</h4> */}
         </div>
     </div>

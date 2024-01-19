@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import {NavSelection, Card} from '../components/index'
+import {NavSelection, Card, CardsContainer} from '../components/index'
 import useFetch from '../hooks/useFetch'
 
 function Home() { 
@@ -13,9 +13,10 @@ function Home() {
       <div className='w-full h-full flex flex-col flex-wrap items-center justify-center mt-2'>
         <NavSelection />
 
-        <div className='flex gap-7 flex-wrap items-center justify-center'>
+        <CardsContainer>
           {Object.keys(list).length !== 0 && <Card list={list} />}
-        </div>
+        </CardsContainer>
+
       </div>
     </>
   );

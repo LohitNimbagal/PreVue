@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import authService from '../../appwrite/auth'
 import { logout } from '../../features/authSlice'
-import { search } from '../../features/searchSlice'
 import logo from "../../../public/statics/logo.png"
 import SearchInput from './SearchInput'
 

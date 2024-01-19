@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import { search } from '../../features/searchSlice';
 
 function SearchInput() {
 

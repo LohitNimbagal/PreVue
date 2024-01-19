@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Card} from '../components/index';
+import {Card, CardsContainer} from '../components/index';
 import { useSelector } from 'react-redux';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import envVariables from '../envVariables/envVariables';
@@ -21,12 +21,10 @@ function Searchlist() {
     const list = data.results
     return (
       <>
-        <div className='container-snap h-70'>
-        <div className='cardWrapper w-fit py-2 flex flex-wrap mb-1 justify-center gap-10'>
+        <CardsContainer>
           {list !== undefined  ? ( <Card list={list} />) : <h1 className='text-2xl font-bold text-center'>Loading...</h1>
           }
-        </div>
-      </div>
+        </CardsContainer>
       </>
     )
   } else return <h1 className='flex items-center justify-center'>No Results Found</h1>  

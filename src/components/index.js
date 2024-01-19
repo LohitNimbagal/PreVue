@@ -10,6 +10,7 @@ import Card from "./Card.jsx"
 import MovieDetails from "../components/Details/MovieDetails"
 import TvDetails from "../components/Details/TvDetails"
 import SearchInput from "./Hearder/SearchInput.jsx";
+import CardsContainer from './CardsContainer.jsx'
 
 export {
     Login,
@@ -23,5 +24,6 @@ export {
     Card,
     MovieDetails,
     TvDetails,
-    SearchInput
+    SearchInput,
+    CardsContainer
 }
