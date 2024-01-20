@@ -1,19 +1,12 @@
-import Logo from "./Logo"
-import Input from "./Input";
-import Button from "./Button";
-import Header from "./Hearder/Header.jsx"
-import SearchInput from "./Hearder/SearchInput.jsx";
+import MovieDetails from "./Details/MovieDetails";
+import TvDetails from "./Details/TvDetails";
+import CardsContainer from "./CardsContainer"
+import Header from "./Header"
+import LoginComp from "./LoginComp"
+import NavSelection from "./NavSelection.jsx"
 import Protected from "./Protected.jsx"
-import Card from "./Cards/Card.jsx"
-import CardsContainer from './Cards/CardsContainer.jsx'
+import SignupComp from "./SignupComp.jsx"
 
 export {
-    Logo,
-    Input,
-    Button,
-    Header,
-    Protected,
-    Card,
-    SearchInput,
-    CardsContainer
+    MovieDetails, TvDetails, CardsContainer, Header, LoginComp, NavSelection, Protected, SignupComp
 }

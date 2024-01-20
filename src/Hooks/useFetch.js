@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import envVariables from '../../envVariables/envVariables'
+import envVariables from '../envVariables/envVariables'
 
 const useFetch = ({type, category}) => {
 

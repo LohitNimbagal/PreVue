@@ -1,9 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { SearchInput } from '../index'
-import { logout } from '../../pages/LogIn/authSlice'
-import authService from '../../appwrite/auth'
-import logo from "../../assets/logo.png"
+import { SearchInput } from './UI'
+import { logout } from '../store/authSlice'
+import authService from '../appwrite/auth'
+import logo from "../assets/logo.png"
 
 
 function Header() {

@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
-import authService from '../../appwrite/auth'
-import { login } from '../LogIn/authSlice'
-import {Logo, Input, Button} from "../../components/index"
+import { login } from '../store/authSlice'
+import {Logo, Input, Button} from "./UI"
+import authService from '../appwrite/auth'
 
 function SignupComp() {
 

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import {Card, CardsContainer} from '../components/index';
-import { useSelector } from 'react-redux';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { CardsContainer } from '../components';
+import { Card } from '../components/UI'
+import { useLocation} from 'react-router-dom';
 import envVariables from '../envVariables/envVariables';
 
 
-function Searchlist() {
+function Result() {
 
   const location = useLocation()
   const [data, setData] = useState({})
@@ -30,4 +30,4 @@ function Searchlist() {
   } else return <h1 className='flex items-center justify-center'>No Results Found</h1>  
 }
 
-export default Searchlist
+export default Result

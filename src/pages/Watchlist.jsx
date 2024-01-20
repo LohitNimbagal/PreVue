@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import {Card} from '../components/index'
+import {Card} from '../components/UI'
 
 function Watchlist() {
 

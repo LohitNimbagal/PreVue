@@ -1,7 +1,7 @@
-import {MovieDetails, TvDetails} from "../index"
-import { useLocation, useSearchParams } from "react-router-dom";
-import { useState,useEffect } from "react";
-import envVariables from "../../envVariables/envVariables";
+import {MovieDetails, TvDetails} from "../components/index"
+import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import envVariables from "../envVariables/envVariables";
 
 function Details() {
   

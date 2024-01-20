@@ -17,7 +17,9 @@ function Card({list}) {
     },[location.search])
 
     const handleCardClick = (item)=>{
-        setType(item.media_type ? item.media_type : type)
+        const newType = item.media_type || type;
+        setType(newType);
+
         let id = item.id
         navigate("/details", {state: {type, id }})
     }

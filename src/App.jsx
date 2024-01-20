@@ -1,9 +1,9 @@
 import './App.css'
 import { useState, useEffect } from 'react'
-import { Header } from './components/index.js'
+import { Header } from './components'
 import { Outlet } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { login, logout } from './pages/LogIn/authSlice.js'
+import { login, logout } from './store/authSlice.js'
 import authService from './appwrite/auth'
 
 // import Footer from './Components/Footer/Footer'

@@ -2,11 +2,11 @@ import React from 'react'
 import App from './App.jsx'
 import './index.css'
 import store from "../src/store/store.js"
-import {createRoot} from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { Protected } from './components/index.js'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import {Home, Searchlist, Details, Login, Signup, Watchlist} from "./pages/index.js"
+import {Home, Details, Login, Signup, Watchlist, Result} from "./pages/index.js"
 
 
 
@@ -37,11 +37,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/search",
-        element: <Searchlist />,
+        element: <Result />,
         children: [
           {
             path: ":title",
-            element: <Searchlist />
+            element: <Result />
           }
         ]
       },

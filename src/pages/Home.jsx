@@ -1,7 +1,6 @@
-import { useSelector } from 'react-redux'
-import { Card, CardsContainer} from '../../components/index'
-import { useFetch } from '../index'
-import  NavSelection  from './NavSelection'
+import {CardsContainer, NavSelection} from '../components'
+import { Card } from '../components/UI'
+import useFetch from '../Hooks/useFetch'
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
