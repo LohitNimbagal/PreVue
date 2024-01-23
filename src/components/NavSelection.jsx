@@ -8,7 +8,6 @@ function NavSelection() {
   const [category, setCategory] = useState("popular")
   const [categorySelect, setCategorySelect] = useState()
   const [searchParams, setSearchParams] = useSearchParams()
-  const dispatch = useDispatch()
 
   const typeSelect = [
     { name: "Movie", query: "movie" },
@@ -30,8 +29,6 @@ function NavSelection() {
   ];
   
   useEffect(() => {
-    
-    
     if (type === 'movie') {
       setCategorySelect(movieCat);
     } else {
@@ -41,7 +38,6 @@ function NavSelection() {
 
   useEffect(()=>{
     setSearchParams({type, category})
-    // dispatch(set({type, category}))
   },[type, category])
 
 

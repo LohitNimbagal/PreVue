@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-
-
 function Card({list}) {
 
     const dispatch = useDispatch();
@@ -21,7 +19,7 @@ function Card({list}) {
         setType(newType);
 
         let id = item.id
-        navigate("/details", {state: {type, id }})
+        navigate(`/details/type=${newType}&id=${id}`, {state: {type, id }})
     }
 
     return (
