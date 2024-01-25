@@ -14,27 +14,25 @@ function Details() {
 
   useEffect(()=>{
 
-    const searchParams = new URLSearchParams(location.pathname) 
-    let urltype = searchParams.get("type")
-    let id = searchParams.get("id")
-    console.log(urltype, id);
-    
-
     (async () => {
+
+      const searchParams = new URLSearchParams(location.pathname) 
+      let urltype = searchParams.get("type")
+      let id = searchParams.get("id")
+      setType(urltype)
 
     try {
       setIsLoading(true)
       const response = await fetch (`https://api.themoviedb.org/3/${urltype}/${id}?api_key=${envVariables.apiKey}`)
       const result = await response.json()
       setData(result)
-      setType(urltype)
     } catch (error) {
       setError(true)
     } finally {
       setIsLoading(false)
     }
     })()
-  }, [])
+  }, [location.pathname])
 
   return(
   <>
