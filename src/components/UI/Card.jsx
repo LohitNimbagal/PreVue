@@ -19,7 +19,7 @@ function Card({list}) {
         setType(newType);
 
         let id = item.id
-        navigate(`/details/type=${newType}&id=${id}`, {state: {type, id }})
+        navigate(`/details/title=${item.title ? item.title : item.name}&type=${newType}&id=${id}`)
     }
 
     return (

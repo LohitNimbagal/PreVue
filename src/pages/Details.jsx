@@ -7,33 +7,45 @@ function Details() {
   
   const location = useLocation()
   const [data, setData] = useState({})
-  const [type, setType] = useState(null);
-  const [id, setId] = useState(null);
+  const [type, setType] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(false)
 
-  
-  useEffect(() => {
-    const {type , id} = location.state;
-    setType(type)
-    setId(id)
 
-    fetch (`https://api.themoviedb.org/3/${type}/${id}?api_key=${envVariables.apiKey}`)
-    .then(res => res.json())
-    .then(result => setData(result))
+  useEffect(()=>{
+
+    const searchParams = new URLSearchParams(location.pathname) 
+    let urltype = searchParams.get("type")
+    let id = searchParams.get("id")
+    console.log(urltype, id);
     
-  }, [location.state])
 
+    (async () => {
 
-  if (data) {
-      if (type === "movie") {
-        return <MovieDetails details={data}/>
-      }else if (type === "tv"){
-        return <TvDetails details={data} />
-      }else {
-        return <MovieDetails details={data}/>
-      }
-  } else {
-  return <div className="flex items-center justify-center"> <h1>Loading....</h1> </div>
-  }
+    try {
+      setIsLoading(true)
+      const response = await fetch (`https://api.themoviedb.org/3/${urltype}/${id}?api_key=${envVariables.apiKey}`)
+      const result = await response.json()
+      setData(result)
+      setType(urltype)
+    } catch (error) {
+      setError(true)
+    } finally {
+      setIsLoading(false)
+    }
+    })()
+  }, [])
+
+  return(
+  <>
+    {isLoading && <h1>Loading.....</h1>}
+    {error && <h1>Something Went Wrong</h1>}
+
+    {type === "movie" && data && <MovieDetails details={data} />}
+    {type === "tv" && data && <TvDetails details={data} />}
+
+  </>
+  )
 
 }
 
