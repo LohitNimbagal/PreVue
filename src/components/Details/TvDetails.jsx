@@ -1,8 +1,11 @@
 import React from 'react'
+import WatchProvider from './WatchProvider'
 
 function TvDetails({details}) {
 
     const placeholder = 'https://placehold.co/400x600'
+
+    const info = {id: details.id, type: "tv"}
 
     return (
     <>
@@ -13,6 +16,11 @@ function TvDetails({details}) {
                 <h2 className='text-3xl font-bold text-center lg:text-left lg:mb-5'>{details.name}</h2>
 
                 <h3 className='p-1 bg-blue-400 w-fit h-fit text-xs font-bold rounded-sm'>TV Series</h3>
+
+                <div className=''>
+                    <span className='font-bold'>Providers : </span>
+                    <WatchProvider info={details && info} />
+                </div>
 
                 <h4 className='font-bold'>{Math.round(details.vote_average)} ⭐</h4>
 
