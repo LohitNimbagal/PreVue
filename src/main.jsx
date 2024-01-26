@@ -8,6 +8,7 @@ import { Protected } from './components/index.js'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import {Home, Details, Login, Signup, Watchlist, Result} from "./pages/index.js"
+import NotFound from './pages/NotFound.jsx'
 
 
 
@@ -17,11 +18,11 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/",
+        path: "/home",
         element: <Home />,
         children: [
           {
-            path: "/:navinfo",
+            path: ":navinfo",
             element: <Home />
           }
         ]
@@ -70,7 +71,17 @@ const router = createBrowserRouter([
           </Protected>
         )
       },
+      {
+        path: "*",
+        element: (
+          <NotFound />
+        )
+      },
     ]
+  },
+  {
+    path: "*",
+    element: <NotFound />
   }
 ])
 

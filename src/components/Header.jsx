@@ -58,7 +58,7 @@ function Header() {
 
     <header className='w-full flex flex-col lg:flex-row items-center justify-center lg-w-full lg:items-center lg:justify-between lg:px-10'>
 
-      <Link to='/'><img src={logo} alt="logo" className='w-52'/></Link>
+      <Link to='/home?type=movie&category=popular'><img src={logo} alt="logo" className='w-52'/></Link>
         
       <SearchInput />
 
