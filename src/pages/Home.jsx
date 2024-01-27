@@ -1,10 +1,8 @@
 import {CardsContainer, NavSelection} from '../components'
 import { Card } from '../components/UI'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
 import envVariables from '../envVariables/envVariables'
-import useFetch from '../Hooks/useFetch'
 
 
 function Home() { 

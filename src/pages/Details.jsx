@@ -28,6 +28,7 @@ function Details() {
       setData(result)
     } catch (error) {
       setError(true)
+      console.log(error);
     } finally {
       setIsLoading(false)
     }
