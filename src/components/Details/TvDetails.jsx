@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import WatchProvider from './WatchProvider'
+import { useDispatch } from 'react-redux'
+import { addToWatchlist } from '../../store/watchlistSlice'
 
 function TvDetails({details}) {
 
+    const dispatch = useDispatch()
     const placeholder = 'https://placehold.co/400x600'
+    const [isSaved, setIsSaved] = useState(false)
 
     const info = {id: details.id, type: "tv"}
 
@@ -21,6 +25,14 @@ function TvDetails({details}) {
                     <span className='font-bold'>Providers : </span>
                     <WatchProvider info={details && info} />
                 </div>
+
+                <button className='rounded bg-blue-400 my-1 py-1 px-2 font-bold' 
+                    onClick={() => {
+                    setIsSaved(!isSaved)
+                    dispatch(addToWatchlist({poster_path: details.poster_path, id: details.id, title: details.name, media_type: "tv"}))
+                    }}>
+                    {isSaved ? "- Remove from Watchlist" : "+ Add to Watchlist" }
+                </button>
 
                 <h4 className='font-bold'>{Math.round(details.vote_average)} ⭐</h4>
 

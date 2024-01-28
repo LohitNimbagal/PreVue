@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
-import notsaved from '../../assets/notsaved.png'
-import saved from "../../assets/saved.png"
 import { addToWatchlist } from '../../store/watchlistSlice';
 
 function Card({list}) {
@@ -35,11 +33,11 @@ function Card({list}) {
 
                     <img src={item.poster_path ? `https://image.tmdb.org/t/p/w500/${item.poster_path}` : placeholderImage} alt="" className='rounded-xl' onClick={() => handleCardClick(item)} />
                     
-                    <img src={notsaved} alt="" className='absolute w-8 right-1 top-1 z-10'
+                    {/* <img src={notsaved} alt="" className='absolute w-8 right-1 top-1 z-10'
                     onClick={() => {
                         dispatch(addToWatchlist({poster_path: item.poster_path, id: item.id, title: item.title || item.name, media_type: item.media_type || type}))
                     }}
-                    />
+                    /> */}
 
                     <div className='absolute h-1/4 text-white w-full flex items-center justify-center bg-black/50 -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300 '>
 

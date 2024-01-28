@@ -37,11 +37,11 @@ function Header() {
       path: "/home?type=movie&category=popular",
       active: true
     },
-    {
-      name: "Favorite",
-      path: "/",
-      active: authStatus
-    },
+    // {
+    //   name: "Favorite",
+    //   path: "/",
+    //   active: authStatus
+    // },
     {
       name: "Watchlist",
       path: "/watchlist",
@@ -100,7 +100,7 @@ function Header() {
             )}
 
            {authStatus && (
-             <button className='inline-bock duration-500 bg-blue-600 p-1 px-2 rounded-sm tracking-wider text-base text-slate-900 hover:bg-blue-400' onClick={handleLogout}>
+             <button className='inline-bock duration-500 bg-blue-500 p-1 px-2 rounded-sm tracking-wider text-base text-slate-900 hover:bg-blue-400' onClick={handleLogout}>
               Logout
             </button>
            )}
@@ -135,7 +135,7 @@ function Header() {
             )}
 
            {authStatus && (
-             <button className='inline-bock duration-500 bg-blue-600 p-1 px-2 rounded-sm tracking-wider text-base text-slate-900 hover:bg-blue-400' onClick={handleLogout}>
+             <button className='inline-bock duration-500 bg-blue-600 p-1 px-2 rounded-sm tracking-wider text-base  text-slate-900 hover:bg-blue-400' onClick={handleLogout}>
               Logout
             </button>
            )}
