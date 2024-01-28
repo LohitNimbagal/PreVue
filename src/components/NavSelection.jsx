@@ -66,7 +66,7 @@ function NavSelection() {
           </ul>
         </div>
 
-        <div className='h-fit w-11/12 p-1 mb-5 mx-10 text-justify bg-white rounded-md backdrop-blur-md bg-opacity-40 '>
+        <div className='h-fit w-11/12 p-1 mb-5 mx-10 text-justify bg-white rounded-md backdrop-blur-md bg-opacity-40 md:w-fit lg:w-fit'>
           <ul className=' flex items-center justify-around gap-5'>
           {categorySelect && (categorySelect.map((item) => {
               return (
