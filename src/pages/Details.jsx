@@ -11,6 +11,7 @@ function Details() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(false)
 
+  
 
   useEffect(()=>{
 

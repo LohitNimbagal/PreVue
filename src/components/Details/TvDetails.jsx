@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import WatchProvider from './WatchProvider'
 import { useDispatch } from 'react-redux'
 import { addToWatchlist } from '../../store/watchlistSlice'
+import { useSelector } from 'react-redux'
 
 function TvDetails({details}) {
 
@@ -10,6 +11,17 @@ function TvDetails({details}) {
     const [isSaved, setIsSaved] = useState(false)
 
     const info = {id: details.id, type: "tv"}
+
+    const list = useSelector(state => state.watchlist)
+
+    useEffect(() => {
+        const isAlreadyAdded = list.some(item => item.id === details.id);
+
+        if (isAlreadyAdded) {
+            setIsSaved(true)
+        }
+
+    }, [details])
 
     return (
     <>
