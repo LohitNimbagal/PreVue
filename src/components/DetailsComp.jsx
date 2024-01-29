@@ -72,7 +72,7 @@ function DetailsComp({details}) {
                         ) : (
                         
                         <>
-                            <div className='flex gap-3'>
+                            <div className='lg:flex gap-3'>
                                 <h4 className='font-bold'>Seasons :<span>{details.number_of_seasons}</span> </h4>
                                 
                                 <h4>Episodes : <span className="font-normal">{details.number_of_episodes}</span></h4>
