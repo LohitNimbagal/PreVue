@@ -1,7 +1,7 @@
-import {MovieDetails, TvDetails} from "../components/index"
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import envVariables from "../envVariables/envVariables";
+import {DetailsComp} from "../components";
 
 function Details() {
   
@@ -41,8 +41,7 @@ function Details() {
     {isLoading && <h1>Loading.....</h1>}
     {error && <h1>Something Went Wrong</h1>}
 
-    {type === "movie" && data && <MovieDetails details={data} />}
-    {type === "tv" && data && <TvDetails details={data} />}
+    <DetailsComp details={data}/>
 
   </>
   )
