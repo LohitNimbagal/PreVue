@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import WatchProvider from './WatchProvider'
 import {addToWatchlist} from '../../store/watchlistSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import service from "../../appwrite/config"
 import { useLocation } from 'react-router-dom'
 
 
@@ -45,7 +46,7 @@ function MovieDetails({details}) {
             <button className='rounded bg-blue-400 my-1 py-1 px-2 font-bold' 
             onClick={() => {
                 setIsSaved(!isSaved)
-                dispatch(addToWatchlist({poster_path: details.poster_path, id: details.id, title: details.title, media_type: "movie"}))
+                    dispatch(addToWatchlist({poster_path: details.poster_path, id: details.id, title: details.title, media_type: "movie"}))
             }}>
                {isSaved ? "- Remove from Watchlist" : "+ Add to Watchlist" }
             </button>

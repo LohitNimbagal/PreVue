@@ -1,7 +1,5 @@
 import envVariables from '../envVariables/envVariables'
 import { Account, Client, ID } from 'appwrite';
-import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
 
 export class AuthService {
 
