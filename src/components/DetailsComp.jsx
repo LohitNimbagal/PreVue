@@ -1,39 +1,56 @@
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import WatchProvider from './UI/WatchProvider'
-import {addToWatchlist} from '../store/watchlistSlice'
+import watchlistSlice, {addToWatchlist, removeFromWatchlist} from '../store/watchlistSlice'
 import { useSelector } from "react-redux"
+import service from "../appwrite/config"
 
 
 function DetailsComp({details}) {
 
-    const dispatch = useDispatch()
     const placeholder = 'https://placehold.co/400x600'
     const [isWatchlisted, setIsWatchlisted] = useState(false)
     const [info, setInfo] = useState({id: 0, type: "movie"})
-    const list = useSelector(state => state.watchlist)
+    const [list, setList] = useState([])
 
     useEffect(() => {
-
-        if (details) {
-            if (details.title) {
-                setInfo({id: details.id, type: "movie"})
-            } else {
-                setInfo({id:details.id, type: "tv"})
-            }
-        }
-
         const isAlreadyAdded = list.some(item => item.id === details.id);
+        setIsWatchlisted(isAlreadyAdded)
+    }, [list])
 
-        if (isAlreadyAdded) {
-            setIsWatchlisted(true)
+    useEffect(() => {
+        (async() => {
+            const response = await service.listItems()
+            setList(response.documents)
+        }) ()
+    }, [isWatchlisted])
+
+    useEffect(() => {
+        if (details) {
+            if (details.number_of_seasons) {
+                setInfo({id: details.id, type: "tv"})
+            } else {
+                setInfo({id: details.id, type: "movie"})
+            }
         }
     }, [details])
 
-    const handelWatchList = () =>{
-        setIsWatchlisted(!isWatchlisted)
-        dispatch(addToWatchlist({poster_path: details.poster_path, id: details.id, title: details.title, media_type: "movie"}))
+    const handelWatchList = async () => {
+        if (!isWatchlisted) {
+            const isAlreadyAdded = list.some(item => item.id === details.id);
+            if (!isAlreadyAdded) {
+                const item = await service.createItem({poster_path: details.poster_path, id: details.id, title: details.title || details.name, media_type: info.type, })
+                setIsWatchlisted(!isWatchlisted)
+            }
+            
+        } else {
+            const itemIdd = list.find(item => item.id === details.id)
+            await service.deleteItem(itemIdd.$id)
+            setIsWatchlisted(!isWatchlisted)
+        }
     }
+
+
 
     return (
         <>
@@ -52,7 +69,7 @@ function DetailsComp({details}) {
                     <WatchProvider info={details && info} />
                 </div>
     
-                <button className='rounded bg-blue-400 my-1 py-1 px-2 font-bold' onClick={handelWatchList}>
+                <button className='rounded bg-blue-400 my-1 py-1 px-2 font-bold' onClick={() => handelWatchList()}>
                    {isWatchlisted ? "- Remove from Watchlist" : "+ Add to Watchlist" }
                 </button>
 
@@ -73,9 +90,9 @@ function DetailsComp({details}) {
                         
                         <>
                             <div className='lg:flex gap-3'>
-                                <h4 className='font-bold'>Seasons :<span>{details.number_of_seasons}</span> </h4>
+                                <h4 className='font-bold'>Seasons :<span className="font-normal">{details.number_of_seasons}</span> </h4>
                                 
-                                <h4>Episodes : <span className="font-normal">{details.number_of_episodes}</span></h4>
+                                <h4 className="font-bold">Episodes : <span className="font-normal">{details.number_of_episodes}</span></h4>
 
                                 {details.next_episode_to_air && 
                                 <h4 className='font-bold' >Next Air Date :

@@ -5,13 +5,13 @@ const watchlistSlice = createSlice({
     initialState: [],
     reducers: {
         addToWatchlist: (state, action) => {
-            const isAlreadyAdded = state.some(item => item.id === action.payload.id);
-
-            if (!isAlreadyAdded) {
             state.push(action.payload)
+        },
+        removeFromWatchlist: (state, action) => {
+            return state.filter(item => item.id !== action.payload)
         }
-    }}
+        }
 })
 
-export const {addToWatchlist} = watchlistSlice.actions
+export const {addToWatchlist, removeFromWatchlist} = watchlistSlice.actions
 export default watchlistSlice.reducer

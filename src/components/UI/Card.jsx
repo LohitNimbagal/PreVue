@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { addToWatchlist } from '../../store/watchlistSlice';
+// import { addToWatchlist } from '../../store/watchlistSlice';
 
 function Card({list}) {
 

@@ -33,9 +33,9 @@ export class Service {
         }
     }
 
-    async deleteItem({itemID}){
+    async deleteItem(itemID){
         try {
-            await this.client.deleteDocument(
+            await this.databases.deleteDocument(
                 envVariables.appwriteDatabaseId,
                 envVariables.appwriteCollectionId,
                 itemID
@@ -49,7 +49,7 @@ export class Service {
 
     async listItems(){
         try {
-            return await this.client.listDocuments(
+            return await this.databases.listDocuments(
                 envVariables.appwriteDatabaseId,
                 envVariables.appwriteCollectionId
             )
