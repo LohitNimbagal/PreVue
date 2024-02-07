@@ -23,6 +23,12 @@ export class Service {
             .then(async (userData) => {
                 if (userData) 
                 console.log(userData.$id);
+
+                const response = await service.listItems()
+                const isAlreadyAdded = response.documents.some(item => item.id === id);
+
+                if (isAlreadyAdded) return
+
                 try {
                     return await this.databases.createDocument(
                         envVariables.appwriteDatabaseId,
@@ -49,17 +55,6 @@ export class Service {
 
     async deleteItem(itemID){
         try {
-            const { userID } = this.props;
-
-            // Check if userID is valid
-            if (!userID) {
-                console.error("Invalid userID. Unable to delete item.");
-                return false; // or throw an error, depending on your requirements
-            }
-
-            console.log(userID);
-
-
             await this.databases.deleteDocument(
                 envVariables.appwriteDatabaseId,
                 envVariables.appwriteCollectionId,

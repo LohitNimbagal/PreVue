@@ -18,7 +18,7 @@ function Watchlist() {
 
   return (
       <CardsContainer>
-        <Card list={list} />
+        {list.length > 0 ? <Card list={list} /> : <h1>Your Watchlist is Empty</h1>}
       </CardsContainer>
     )
 }

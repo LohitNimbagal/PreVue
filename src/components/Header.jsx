@@ -135,9 +135,11 @@ function Header() {
             )}
 
            {authStatus && (
-             <button className='inline-bock duration-500 bg-blue-600 p-1 px-2 rounded-sm tracking-wider text-base  text-slate-900 hover:bg-blue-400' onClick={handleLogout}>
+            <li>
+              <button className='inline-bock duration-500 bg-blue-600 p-1 px-2 rounded-sm tracking-wider text-base  text-slate-900 hover:bg-blue-400' onClick={handleLogout}>
               Logout
             </button>
+            </li>
            )}
       </ul>
     </header>
