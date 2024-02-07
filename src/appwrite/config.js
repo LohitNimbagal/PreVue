@@ -1,5 +1,6 @@
 import envVariables from '../envVariables/envVariables'
-import { Client, ID, Databases, Storage } from 'appwrite';
+import { Client, ID, Databases, Storage, Permission, Role } from 'appwrite';
+import authService from './auth';
 
 export class Service {
 
@@ -14,27 +15,51 @@ export class Service {
         this.databases = new Databases(this.client);
         this.storage = new Storage(this.client);
     }
-
+    
     async createItem({id, media_type, title, poster_path }){
-        try {
-            return await this.databases.createDocument(
-                envVariables.appwriteDatabaseId,
-                envVariables.appwriteCollectionId,
-                ID.unique(),
-                {
-                    id,
-                    media_type,
-                    title,
-                    poster_path
+
+        authService
+            .getCurrentUser()
+            .then(async (userData) => {
+                if (userData) 
+                console.log(userData.$id);
+                try {
+                    return await this.databases.createDocument(
+                        envVariables.appwriteDatabaseId,
+                        envVariables.appwriteCollectionId,
+                        ID.unique(),
+                        {
+                            id,
+                            media_type,
+                            title,
+                            poster_path
+                        },
+                        [
+                            Permission.read(Role.user(userData.$id)),           // User can view this document
+                            Permission.update(Role.user(userData.$id)),         // Writers can update this document 
+                            Permission.delete(Role.user(userData.$id)),         // User 5c1f88b42259e can delete this document
+                        ]
+                    )
+                } catch (error) {
+                    console.log("Appwrite service :: createItem :: error", error);
                 }
-            )
-        } catch (error) {
-            console.log("Appwrite service :: createItem :: error", error);
-        }
+            })
+        
     }
 
     async deleteItem(itemID){
         try {
+            const { userID } = this.props;
+
+            // Check if userID is valid
+            if (!userID) {
+                console.error("Invalid userID. Unable to delete item.");
+                return false; // or throw an error, depending on your requirements
+            }
+
+            console.log(userID);
+
+
             await this.databases.deleteDocument(
                 envVariables.appwriteDatabaseId,
                 envVariables.appwriteCollectionId,
@@ -48,6 +73,7 @@ export class Service {
     }
 
     async listItems(){
+        
         try {
             return await this.databases.listDocuments(
                 envVariables.appwriteDatabaseId,
@@ -59,6 +85,7 @@ export class Service {
     }
 }
 
-const service = new Service();
 
-export default service
+const service = new Service
+
+export default service;

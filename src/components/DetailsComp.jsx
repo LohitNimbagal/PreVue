@@ -20,8 +20,9 @@ function DetailsComp({details}) {
 
     useEffect(() => {
         (async() => {
-            const response = await service.listItems()
-            setList(response.documents)
+            // console.log(service);
+            // const response = await service.listItems()
+            // setList(response.documents)
         }) ()
     }, [isWatchlisted])
 
@@ -49,8 +50,6 @@ function DetailsComp({details}) {
             setIsWatchlisted(!isWatchlisted)
         }
     }
-
-
 
     return (
         <>
