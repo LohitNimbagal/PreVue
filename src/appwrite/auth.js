@@ -17,12 +17,7 @@ export class AuthService {
         try {
             const userAccount = await this.account.create(ID.unique(), email, password, name)
             if (userAccount) {
-                return (
-                    // console.log('user exists');
-                    this.login(email, password)
-                )
-            }else{
-                return userAccount
+                return this.login({email, password})
             }
         } catch (error) {
             console.log('Appwrite Service :: createAccount() :: error', error);
