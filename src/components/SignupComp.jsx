@@ -24,6 +24,7 @@ function SignupComp() {
                 navigate("/")
             }
         } catch (error) {
+            console.log(error);
             setError(error)
         }
     }
@@ -46,7 +47,7 @@ function SignupComp() {
                         Log In
                     </Link>
                 </p>
-                {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
+                {error && <p className="text-red-600 mt-8 text-center">{"hi"}</p>}
                 <form onSubmit={handleSubmit(signup)} className="mt-8">
                     <div className="space-y-5">
                         <Input

@@ -31,7 +31,6 @@ function WatchListButton({details}) {
     
     const handelWatchList = async () => {
         setButtonDisabled(true)
-        console.log("clicked");
         const isAlreadyAdded = list.some(item => item.id === details.id);
         try {
             if (!isAlreadyAdded) {

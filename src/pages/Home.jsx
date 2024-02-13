@@ -3,6 +3,7 @@ import { Card } from '../components/UI'
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import envVariables from '../envVariables/envVariables'
+import { useFetch } from '../hooks/useFetch'
 
 
 function Home() { 
@@ -10,28 +11,8 @@ function Home() {
   const [type, setType] = useState("movie")
   const [category, setCategory] = useState("popular")
 
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState(false)
-  const [list, setList] = useState([])
-
-    useEffect(()=>{
-        (async () => {
-
-        try {
-          setIsLoading(true)
-          const response = await fetch(`https://api.themoviedb.org/3/${type}/${category}?api_key=${envVariables.apiKey}&language=en-US`)
-          const result = await response.json()
-          setList(result.results)
-          // setIsLoading(false)
-        } catch (error) {
-          setError(true)
-        } finally {
-          setIsLoading(false)
-        }
-
-        })()
-    }, [type, category])
-
+  const url = `https://api.themoviedb.org/3/${type}/${category}?api_key=${envVariables.apiKey}`
+  const {data, loading, error} = useFetch(url)
 
   useEffect(() => {
     const searchParams = new URLSearchParams(document.location.search)
@@ -45,19 +26,19 @@ function Home() {
 
         <NavSelection />
 
-        {isLoading && <h1>Loading.....</h1>}
+        {loading && <h1>Loading.....</h1>}
         {error && <h1>Something Went wrong</h1>}
 
-        {list && 
+        {data && 
           <CardsContainer>
-            {Object.keys(list).length !== 0 &&
-            <Card list={list}/>
+            {Object.keys(data.results).length !== 0 &&
+            <Card list={data.results}/>
             }
           </CardsContainer>
         }
           
-        </div>
-      </>
+      </div>
+    </>
   );
 }
     
