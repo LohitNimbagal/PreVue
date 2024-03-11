@@ -1,26 +1,28 @@
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
 import { useDispatch } from 'react-redux'
-import {login as authLogin} from '../store/authSlice'
+import { login as authLogin } from '../store/authSlice'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
-import {Logo, Input, Button} from '../components/UI/index'
+import { Logo, Input, Button } from '../components/UI/index'
 import authService from '../appwrite/auth'
- 
+
 function LoginComp() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const {register, handleSubmit} = useForm()
+    const { register, handleSubmit } = useForm()
     const [error, setError] = useState("")
 
     const login = async (data) => {
         setError("")
         try {
-            const userData = await authService.login(data)
-            if (userData) {
+            const loggedInUserData = await authService.login(data)
+            if (loggedInUserData) {
                 const userData = await authService.getCurrentUser()
-                if (userData) dispatch(authLogin(userData))
-                navigate("/")
+                if (userData) {
+                    dispatch(authLogin(userData))
+                    navigate("/")
+                }
             }
         } catch (error) {
             setError(error.message)
@@ -54,7 +56,7 @@ function LoginComp() {
                             type="email"
                             {...register("email", {
                                 required: true,
-                                
+
                             })}
                         />
                         <Input
