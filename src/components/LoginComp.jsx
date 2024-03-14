@@ -50,6 +50,7 @@ function LoginComp() {
                 {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
                 <form onSubmit={handleSubmit(login)} className="mt-8">
                     <div className="space-y-5">
+                        <div className='space-y-2'>
                         <Input
                             label="Email : "
                             placeholder="Email Address"
@@ -59,12 +60,18 @@ function LoginComp() {
 
                             })}
                         />
+                        <p className='text-sm'>Test Email : <span className='text-blue-600 '>test@test.com</span> </p>
+                        </div>
+                        
+                        <div className='space-y-2'>
                         <Input
                             label="Password : "
                             type="password"
                             placeholder="Password"
                             {...register("password", { required: true })}
                         />
+                        <p className='text-sm '>Test Password : <span className='text-blue-600'>12345678 </span></p>
+                        </div>
                         <Button type="submit" className="w-full font-bold">
                             Login{" "}
                         </Button>
